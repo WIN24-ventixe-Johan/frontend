@@ -1,0 +1,20 @@
+
+
+
+.avatar-image {
+    border-radius:50%;
+    max-width: 60px;
+    max-height: 60px;
+    border: 2px solid black;
+    
+}
+
+.login-content {
+    display: flex;
+    gap:2rem;
+    align-items:center;
+}
+
+.user-title {
+    font-size:15px;
+}
