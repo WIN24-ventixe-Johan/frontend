@@ -39,17 +39,19 @@ const EventItem = ({ item, onDelete }) => {
             backgroundImage: `url(${item.image || defaultEventImage})`
           }}
         />
-        <p className="event-date">{item.eventDate}</p>
+        <p className="event-date">{item.eventDate}
+          
+        </p>
         <h4 className="event-title">{item.title}</h4>
         <p className="event-description">{item.description}</p>
-      
-       <div className="event-footer">
-      <button className="event-delete-btn" onClick={handleDelete}>Ta bort event</button>
-            <p className="event-location"> {item.location}</p>
-          </div>
+
       </Link>
+        <div className="event-footer">
+          <button className="event-delete-btn" onClick={handleDelete}>Ta bort event</button>
+          <p className="event-location"> {item.location}</p>
+        </div>
     </div>
-   
+
   );
 };
 

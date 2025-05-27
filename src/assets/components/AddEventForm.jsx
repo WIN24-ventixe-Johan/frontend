@@ -1,10 +1,11 @@
 import { useState } from 'react';
+import currentDateTime from './helpers.js'
 
 const AddEventForm = ({ onAddEvent, onCancel }) => {
  
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
-  const [date, setDate] = useState('');   
+  const [date, setDate] = useState(currentDateTime);   
   const [location, setLocation] = useState('');
   const [image, setImage] = useState('');
 
@@ -34,10 +35,8 @@ const AddEventForm = ({ onAddEvent, onCancel }) => {
         throw new Error(`${res.status}: ${text}`);
       }
 
-      const created = await res.json; 
+      const created = await res.json(); 
       onAddEvent(created);
-
-      onAddEvent(created);  
       onCancel();         
     } catch (err) {
       console.error('Kunde inte spara event:', err);
