@@ -8,8 +8,8 @@ import AddEventForm   from './AddEventForm';
 const Events = () => {
   const [events, setEvents]     = useState([]);
   const [showForm, setShowForm] = useState(false);
-
  
+
   const fetchEvents = async () => {
     try {
       const res  = await fetch(

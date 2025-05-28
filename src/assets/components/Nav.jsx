@@ -1,10 +1,20 @@
 import {NavLink} from 'react-router-dom'
+import { logout } from './authService'
+import { useNavigate } from 'react-router-dom'
 import './styles/App.css'
 import './styles/Nav.css'
 import {FaCalendarAlt,FaSignOutAlt,FaEnvelope,FaImage, FaClipboardList,  FaTicketAlt,  FaInbox,  FaUsers,  FaChartBar} from 'react-icons/fa';
 import Ventixe from './images/Ventixe.svg'
 
 const Nav = () => {
+
+  const navigate = useNavigate();
+
+    const handleLogout = () => {
+        logout()
+        navigate("/login")
+    }
+
   return (
     <nav className="sidebar">
       <div className="sidebar-header">
@@ -23,7 +33,7 @@ const Nav = () => {
         <li><NavLink to="/feedback"><FaEnvelope /> Feedback</NavLink></li>
       </ul>
       <div className="signout-section">
-        <button className="signout-btn"><FaSignOutAlt /> Sign Out</button>
+        <button className="signout-btn" onClick={handleLogout}><FaSignOutAlt /> Sign Out</button>
       </div>
     </nav>
   );
