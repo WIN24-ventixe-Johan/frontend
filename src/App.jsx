@@ -1,5 +1,5 @@
 import '../src/assets/components/styles/App.css'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, Navigate } from 'react-router-dom'
 import PortalLayout from './assets/layouts/PortalLayout'
 import BookingEventPage from './assets/pages/BookingEventPage'
 import Events from './assets/components/Events'
@@ -13,6 +13,7 @@ function App() {
   return (
     <>
       <Routes>
+        <Route path="/" element={<Navigate to="/login" />} />
         <Route path="/login" element={<Login />} />
         <Route element={<PortalLayout />}>
           <Route path="/events" element={<Events />} />
