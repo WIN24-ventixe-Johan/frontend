@@ -191,3 +191,34 @@
   white-space: nowrap;
 
 }
+
+
+@media (max-width: 768px) {
+  .event-grid {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .event-card {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 12px;
+  }
+
+  .event-image-placeholder {
+    width: 100%;
+    height: 180px;
+  }
+
+  .form-buttons {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .add-event-btn,
+  .event-delete-btn {
+    width: 100%;
+    font-size: 12px;
+  }
+}

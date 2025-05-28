@@ -54,7 +54,7 @@ const BookingEventPage = () => {
         console.error("Booking failed")
       } else {
         console.log("Booking successful")
-        navigate('/')
+        navigate('/events')
       }
     } catch (err) {
       console.error("Error submitting booking", err)

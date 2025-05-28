@@ -1,0 +1,74 @@
+.event-form-container {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
+  max-width: 700px;
+  margin: auto;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.event-form-container h2 {
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+  color: #333;
+}
+
+.event-form-container label {
+  display: block;
+  margin: 1rem 0 0.3rem;
+  font-weight: 600;
+}
+
+.event-form-container input,
+.event-form-container textarea,
+.event-form-container input[type="datetime-local"] {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+.event-form-container input:focus,
+.event-form-container textarea:focus {
+  border-color: #4a90e2;
+  outline: none;
+}
+
+.event-form-buttons {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.event-form-buttons button {
+  flex: 1;
+  padding: 0.75rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.event-form-buttons .save-btn {
+  background-color: #28a745;
+  color: white;
+}
+
+.event-form-buttons .save-btn:hover {
+  background-color: #218838;
+}
+
+.event-form-buttons .cancel-btn {
+  background-color: #dc3545;
+  color: white;
+}
+
+.event-form-buttons .cancel-btn:hover {
+  background-color: #c82333;
+}
+

@@ -1,15 +1,14 @@
 import { useState } from 'react';
-import currentDateTime from './helpers.js'
+import currentDateTime from './helpers.js';
+import './styles/EventForm.css';
 
 const AddEventForm = ({ onAddEvent, onCancel }) => {
- 
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
-  const [date, setDate] = useState(currentDateTime);   
+  const [date, setDate] = useState(currentDateTime);
   const [location, setLocation] = useState('');
-  const [image, setImage] = useState('');
+  const [image, setImage] = useState(''); // Här var det en sträng, inte en fil
 
- 
   const handleSubmit = async e => {
     e.preventDefault();
 
@@ -17,7 +16,7 @@ const AddEventForm = ({ onAddEvent, onCancel }) => {
       image,
       description,
       title,
-      eventDate: date,  
+      eventDate: date,
       location
     };
 
@@ -30,22 +29,23 @@ const AddEventForm = ({ onAddEvent, onCancel }) => {
           body: JSON.stringify(payload)
         }
       );
+
       if (!res.ok) {
         const text = await res.text();
         throw new Error(`${res.status}: ${text}`);
       }
 
-      const created = await res.json(); 
+      const created = await res.json();
       onAddEvent(created);
-      onCancel();         
+      onCancel();
     } catch (err) {
       console.error('Kunde inte spara event:', err);
     }
   };
 
   return (
-    <form className="add-event-form" onSubmit={handleSubmit}>
-      <h3>Lägg till nytt event</h3>
+    <form className="event-form-container" onSubmit={handleSubmit}>
+      <h2>Lägg till nytt event</h2>
 
       <label>
         Titel
@@ -96,9 +96,15 @@ const AddEventForm = ({ onAddEvent, onCancel }) => {
         />
       </label>
 
-      <div className="form-buttons">
-        <button type="submit">Spara</button>
-        <button type="button" onClick={onCancel}>Avbryt</button>
+      {image && (
+        <div className="image-preview">
+          <img src={image} alt="Förhandsvisning" />
+        </div>
+      )}
+
+      <div className="event-form-buttons">
+        <button type="submit" className="save-btn">Spara</button>
+        <button type="button" className="cancel-btn" onClick={onCancel}>Avbryt</button>
       </div>
     </form>
   );
