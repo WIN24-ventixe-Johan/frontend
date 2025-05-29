@@ -6,8 +6,8 @@ import Events from './assets/components/Events'
 import EventDetailsPage from './assets/pages/EventDetailsPage'
 import Login from './assets/components/Login'
 import Register from './assets/components/Register'
-import ProtectedRoute from './assets/components/ProtectedRoute';
-
+import ProtectedRoute from './assets/components/ProtectedRoute'
+import Verify from './assets/components/Verify'
 
 function App() {
 
@@ -17,6 +17,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Navigate to="/login" />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/verify" element={<Verify />} /> 
         <Route path="/login" element={<Login />} />
         <Route element={<ProtectedRoute><PortalLayout /></ProtectedRoute>}>
           <Route path="/events" element={<Events />} />
