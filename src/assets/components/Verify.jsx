@@ -5,7 +5,7 @@ import { useLocation, useNavigate } from 'react-router-dom'
     const location = useLocation();
     const navigate = useNavigate();
 
-    const params = new URLSearcParams(location.search);
+    const params = new URLSearchParams(location.search);
     const email = params.get('email');
     const token = params.get('token');
 
