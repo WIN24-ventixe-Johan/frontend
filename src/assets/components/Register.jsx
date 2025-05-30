@@ -1,56 +1,106 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import videoBackground from './images/Ventixevideo.mp4'; 
+import './styles/Login.css'; 
 
 const Register = () => {
-    const [form, setForm] = useState({
-        firstName: '',
-        lastName: '',
-        email: '',
-        password: '',
-        confirmPassword: ''
+  const [form, setForm] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: '',
+    confirmPassword: ''
+  });
+
+  const navigate = useNavigate();
+
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const handleRegister = async () => {
+    if (form.password !== form.confirmPassword) {
+      alert("Lösenorden matchar inte!");
+      return;
+    }
+
+    const res = await fetch(`${import.meta.env.VITE_API_URL}/api/register`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(form)
     });
 
-    const navigate = useNavigate();
+    if (res.ok) {
+      alert('Registrering lyckades! Kolla din e-post för att verifiera ditt konto.');
+      navigate('/login');
+    } else {
+      const msg = await res.text();
+      alert(`Något gick fel: ${msg}`);
+    }
+  };
 
-    const handleChange = (e) => {
-        setForm({...form, [e.target.name]: e.target.value })
-    };
+  return (
+    <div className="login-wrapper">
+      <video autoPlay loop muted playsInline className="bg-video">
+        <source src={videoBackground} type="video/mp4" />
+      </video>
 
-    const handleRegister = async () => {
+      <div className="login-container">
+        <div className="login-box">
+          <h2>Skapa konto</h2>
 
-        if (form.password !== form.confirmPassword) {
-            alert("Lösenorden matchar inte!");
-            return;
-        }
+          <div className="login-boxes">
+            <input
+              name="firstName"
+              placeholder="Förnamn"
+              value={form.firstName}
+              onChange={handleChange}
+              className="login-input"
+              required
+            />
+            <input
+              name="lastName"
+              placeholder="Efternamn"
+              value={form.lastName}
+              onChange={handleChange}
+              className="login-input"
+              required
+            />
+            <input
+              name="email"
+              placeholder="E-post"
+              value={form.email}
+              onChange={handleChange}
+              className="login-input"
+              required
+            />
+            <input
+              name="password"
+              type="password"
+              placeholder="Lösenord"
+              value={form.password}
+              onChange={handleChange}
+              className="login-input"
+              required
+            />
+            <input
+              name="confirmPassword"
+              type="password"
+              placeholder="Bekräfta lösenord"
+              value={form.confirmPassword}
+              onChange={handleChange}
+              className="login-input"
+              required
+            />
 
-        const res = await fetch (`${import.meta.env.VITE_API_URL}/api/register`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json'},
-            body: JSON.stringify(form)
-
-        });
-
-        if (res.ok) {
-            alert('Registrering lyckades! Kolla din e-post för att verifiera ditt konto.');
-            navigate('/login');
-        } else {
-            const msg = await res.text();
-            alert(`Något gick fel: ${msg}`)
-        }
-    };
-
-    return (
-        <div className='register-container'>
-            <h2> Skapa konto</h2>
-            <input name="firstName" required placeholder="Förnamn" value={form.firstName} onChange={handleChange} />
-            <input name="lastName" required placeholder="Efternamn" value={form.lastName} onChange={handleChange} />
-            <input name="email" required placeholder="E-post" value={form.email} onChange={handleChange} />
-            <input name="password" required placeholder="Lösenord" value={form.password} type="password" onChange={handleChange} />
-            <input name="confirmPassword" required placeholder="Bekräfta lösenord" value={form.confirmPassword} type="password" onChange={handleChange} />
-
-            <button onClick={handleRegister}>Registrera</button>
+            <button onClick={handleRegister} className="login-btn">
+              Registrera
+            </button>
+          </div>
         </div>
-    );
+      </div>
+    </div>
+  );
 };
 
 export default Register;

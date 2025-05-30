@@ -1,28 +1,52 @@
 .event-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 2rem;
-  padding: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+  justify-content: center;
+  padding: 1rem;
+
+
+  @media (max-width: 1200px) {
+    .event-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (max-width: 900px) {
+    .event-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .event-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
 }
 
 
 .event-list {
   display: grid;
-  gap: 2rem;
+
 }
 
 .event-card {
-  background-color: white;
-  border-radius: 1rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  padding: 1rem;
-  height: 100%;
-  width: 280px;
+  max-width: 274px;
+  height: auto;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  transition: 0.2s ease-in-out;
+  justify-content: space-between;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
 }
+
+
+
 
 .event-card-content {
   flex: 1;
@@ -68,27 +92,27 @@
   line-clamp: 3;
 }
 
-.event-status {
-  background-color: var(--primary-30);
-  color: var(--primary-100);
-  font-size: 0.75rem;
-  padding: 0.2rem 0.5rem;
-  border-radius: 999px;
-}
 
 .event-image-placeholder {
-  background-color: var(--grey-30);
+  height: 209px;
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
-  height: 200px;
-  width: 250px;
+  object-fit: cover;
   border-radius: 0.75rem;
+  border: 2px solid black;
 }
 
+
 .event-date {
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   color: var(--grey-60);
+}
+
+.event-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-color);
+  margin: 1;
 }
 
 
@@ -101,9 +125,6 @@
 
 }
 
-.event-price {
-  color: var(--primary-100);
-}
 
 .add-event-form {
   background: #fff;
@@ -168,10 +189,11 @@
   color: #fff;
   border: none;
   border-radius: 10px;
-  font-size: 10px;
+  font-size: 12px;
   line-height: 1;
   cursor: pointer;
-  white-space: nowrap;
+  margin-bottom: 1.5rem;
+
 }
 
 .event-delete-btn {
@@ -190,6 +212,11 @@
   cursor: pointer;
   white-space: nowrap;
 
+}
+
+.event-page {
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 

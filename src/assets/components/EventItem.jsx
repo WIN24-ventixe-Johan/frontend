@@ -29,10 +29,7 @@ const EventItem = ({ item, onDelete }) => {
   return (
     <div className="event-card">
       <Link to={`/events/${item.id}`} className="event-card-content">
-        <div className="event-card-header">
-          <span className="event-category">{item.category}</span>
-          <span className={`event-status ${item.status}`}>{item.status}</span>
-        </div>
+        
         <div
           className="event-image-placeholder"
           style={{
@@ -43,8 +40,7 @@ const EventItem = ({ item, onDelete }) => {
           
         </p>
         <h4 className="event-title">{item.title}</h4>
-        <p className="event-description">{item.description}</p>
-
+        
       </Link>
         <div className="event-footer">
           <button className="event-delete-btn" onClick={handleDelete}>Ta bort event</button>

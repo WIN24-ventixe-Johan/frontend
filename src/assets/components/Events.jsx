@@ -42,20 +42,18 @@ const Events = () => {
   }
 
   return (
-    <section className="event-page">
+    
+    <section>
       <button className="add-event-btn" onClick={() => setShowForm(true)}>Lägg till event</button>
-
       {showForm && (
         <AddEventForm
           onAddEvent={AddEvent}
           onCancel={() => setShowForm(false)}
         />
       )}
-
-      <div className="event-list">
         <EventList events={events} onDelete={handleDeleteEvent} />
-      </div>
     </section>
+   
   );
 };
 

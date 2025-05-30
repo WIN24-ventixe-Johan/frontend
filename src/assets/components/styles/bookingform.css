@@ -74,3 +74,11 @@ background-image: url('../images/ultramusic.jpg');
 .btn-submit:hover {
   background-color: #9900cc;
 }
+
+.image-preview {
+  overflow: hidden;
+}
+
+.event-page {
+  overflow:hidden;
+}
