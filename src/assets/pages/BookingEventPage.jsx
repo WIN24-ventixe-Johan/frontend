@@ -102,6 +102,21 @@ const BookingEventPage = () => {
         <button type="submit" className="btn-submit">Book Now</button>
       </form>
     </div >
+    {showToast && (
+  <div style={{
+    position: 'fixed',
+    bottom: '20px',
+    right: '20px',
+    backgroundColor: 'rgba(0,0,0,0.7)',
+    color: 'white',
+    padding: '10px 20px',
+    borderRadius: '5px',
+    zIndex: 9999,
+    boxShadow: '0 0 10px rgba(0,0,0,0.5)'
+  }}>
+    {toastMessage}
+  </div>
+)}
     </div>
 
 
