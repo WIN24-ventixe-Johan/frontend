@@ -31,7 +31,11 @@ import { useLocation, useNavigate } from 'react-router-dom'
         }
     }, [email, token, navigate]);
 
-    return <p> Verifierar e-post...</p>
-    }
-
+  return (
+  <div style={{ padding: '20px', textAlign: 'center' }}>
+    <h2>Verifierar din e-postadress...</h2>
+    <p>Vänligen vänta ett ögonblick.</p>
+  </div>
+);
+};
     export default Verify;
