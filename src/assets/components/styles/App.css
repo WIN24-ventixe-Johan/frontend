@@ -112,6 +112,8 @@ body {
     "nav footer";
   height: 100vh;
   overflow: hidden;
+  padding:1rem 1rem;
+  gap:1rem;
 }
 
 
@@ -131,7 +133,8 @@ body {
     flex-direction: row;
     overflow-x: auto;
     height: auto;
-    padding: 1rem;
+
+   
   }
 
   header, footer, .main-area {
@@ -141,6 +144,7 @@ body {
 
   .main-area {
     padding: 1rem;
+    margin:1rem;
   }
 }
 nav {
@@ -151,9 +155,7 @@ nav {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  margin-left:1rem;
-  margin-top:1rem;
-  margin-bottom:1rem;
+ 
 }
 
 header {
@@ -163,11 +165,8 @@ header {
   align-items: center;
   justify-content: space-between;
   padding: 0 24px;
-  margin-bottom:1rem;
-  margin-left:4rem;
   border-radius:0.5rem;
-  margin-top:1rem;
-  margin-right:1rem;
+
 }
 
 .main-area {
@@ -178,10 +177,8 @@ header {
   padding: 1rem;
   display: flex;
   flex-direction: column;
-  margin-left:4rem;
-  margin-bottom:1rem;
   border-radius:0.5rem;
-  margin-right:1rem;
+ 
 }
 
 
@@ -193,9 +190,8 @@ footer {
   align-items: center;
   justify-content: space-between;
   padding: 0 24px;
-  margin-left:4rem;
   border-radius:0.5rem;
-  margin-right:1rem;
+
 }
 
 .header-content {
