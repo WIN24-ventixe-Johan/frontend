@@ -29,23 +29,31 @@ const EventItem = ({ item, onDelete }) => {
   return (
     <div className="event-card">
       <Link to={`/events/${item.id}`} className="event-card-content">
-        
+
         <div
           className="event-image-placeholder"
           style={{
             backgroundImage: `url(${item.image || defaultEventImage})`
           }}
         />
-        <p className="event-date">{item.eventDate}
-          
+        <p className="event-date">
+          {new Date(item.eventDate).toLocaleDateString('sv-SE', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+          })}{' – '}{new Date(item.eventDate).toLocaleTimeString('sv-SE', {
+            hour: '2-digit',
+            minute: '2-digit'
+          })}
         </p>
+
         <h4 className="event-title">{item.title}</h4>
-        
+
       </Link>
-        <div className="event-footer">
-          <button className="event-delete-btn" onClick={handleDelete}>Ta bort event</button>
-          <p className="event-location"> {item.location}</p>
-        </div>
+      <div className="event-footer">
+        <p className="event-location"> {item.location}</p>
+        <button className="event-delete-btn" onClick={handleDelete}>Ta bort event</button>
+      </div>
     </div>
 
   );

@@ -7,6 +7,8 @@ const BookingEventPage = () => {
   const navigate = useNavigate()
   const { id } = useParams()
   const [event, setEvent] = useState([])
+  const [toastMessage, setToastMessage] = useState('');
+  const [showToast, setShowToast] = useState(false);
   const [formData, setFormData] = useState
     ({
       eventId: id,
@@ -53,8 +55,14 @@ const BookingEventPage = () => {
       if (!res.ok) {
         console.error("Booking failed")
       } else {
-        console.log("Booking successful")
-        navigate('/events')
+        
+        setToastMessage("Bokningen är skickad och bekräftelsemail har skickats!")
+        setShowToast(true);
+        
+        setTimeout(() => {
+          setShowToast(false);
+          navigate('/events') 
+        }, 3000);
       }
     } catch (err) {
       console.error("Error submitting booking", err)
